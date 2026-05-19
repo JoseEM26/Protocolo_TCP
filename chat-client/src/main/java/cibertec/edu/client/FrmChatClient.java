@@ -23,6 +23,8 @@ public class FrmChatClient extends JFrame {
 	private JButton btnSalir;
 
 	/**
+	 * Método main para ejecutar el formulario de manera independiente
+	 * y visualizarlo. Útil durante el desarrollo de la interfaz gráfica.
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -39,6 +41,10 @@ public class FrmChatClient extends JFrame {
 	}
 
 	/**
+	 * Constructor que inicializa y estructura la ventana gráfica del Cliente.
+	 * Establece componentes básicos como el título, tamaño, layout principal 
+	 * (BorderLayout) y agrega los botones, áreas de texto de la conversación 
+	 * y el campo para ingresar nuevos mensajes.
 	 * Create the frame.
 	 */
 	public FrmChatClient() {
@@ -86,14 +92,29 @@ public class FrmChatClient extends JFrame {
 		scrollPane.setViewportView(txtConversacion);
 	}
 
+	/**
+	 * Devuelve la referencia al campo de texto donde el usuario escribe el mensaje.
+	 * Permite leer el texto ingresado o asignarle un listener de acción.
+	 */
 	public JTextField getTxtMensaje() {
 		return txtMensaje;
 	}
 
+	/**
+	 * Devuelve el botón de envío de mensajes.
+	 * Útil para asignarle su respectivo listener de acción (ActionListener).
+	 */
 	public JButton getBtnEnviar() {
 		return btnEnviar;
 	}
 
+	/**
+	 * Agrega un nuevo mensaje al área de conversación (historial) del chat.
+	 * Toma el texto existente, le adjunta el nuevo mensaje con un salto de línea
+	 * y actualiza el componente gráfico. Luego limpia el campo de texto de entrada.
+	 * 
+	 * @param message el mensaje de texto a agregar a la interfaz.
+	 */
 	public void addMessage(String message) {
 		String conversacion = txtConversacion.getText();
 		conversacion = conversacion.concat(message).concat("\n");

@@ -29,6 +29,7 @@ public class DlgConf extends JDialog {
 	private boolean accept;
 
 	/**
+	 * Inicia la ventana de configuración del puerto de manera independiente.
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -42,6 +43,9 @@ public class DlgConf extends JDialog {
 	}
 
 	/**
+	 * Constructor que construye y configura el cuadro de diálogo (JDialog).
+	 * Configura el comportamiento modal, sus dimensiones y los componentes 
+	 * internos (etiquetas, spinner para seleccionar el puerto y los botones OK/Cancel).
 	 * Create the dialog.
 	 */
 	public DlgConf() {
@@ -94,20 +98,40 @@ public class DlgConf extends JDialog {
 		cancelButton.addActionListener(e -> cancel());
 	}
 	
+	/**
+	 * Método invocado al presionar el botón "OK".
+	 * Marca la variable 'accept' como true para indicar que el usuario
+	 * confirmó la selección y oculta el cuadro de diálogo.
+	 */
 	private void ok() {
 		accept = true;
 		setVisible(false);
 	}
 	
+	/**
+	 * Método invocado al presionar el botón "Cancel".
+	 * Marca la variable 'accept' como false para indicar que el usuario
+	 * canceló la operación y oculta el cuadro de diálogo sin guardar el puerto.
+	 */
 	private void cancel() {
 		accept = false;
 		setVisible(false);
 	}
 	
+	/**
+	 * Retorna si el usuario aceptó la configuración (presionó OK).
+	 *
+	 * @return true si el usuario aceptó, false en caso contrario.
+	 */
 	public boolean isAccept() {
 		return accept;
 	}
 	
+	/**
+	 * Retorna el puerto que fue seleccionado mediante el componente JSpinner.
+	 * 
+	 * @return El número de puerto configurado.
+	 */
 	public int getPuerto() {
 		return (Integer) spnPuerto.getValue();
 	}

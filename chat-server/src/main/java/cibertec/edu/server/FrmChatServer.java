@@ -23,6 +23,7 @@ public class FrmChatServer extends JFrame {
 	private JButton btnSalir;
 
 	/**
+	 * Punto de entrada para lanzar independientemente la interfaz visual.
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -39,6 +40,10 @@ public class FrmChatServer extends JFrame {
 	}
 
 	/**
+	 * Constructor que crea el frame principal de la ventana del Servidor.
+	 * Configura el título, dimensiones, la disposición (layout) y los 
+	 * diversos componentes gráficos (botones, áreas de texto, paneles) 
+	 * necesarios para que el usuario pueda interactuar con el chat.
 	 * Create the frame.
 	 */
 	public FrmChatServer() {
@@ -86,14 +91,29 @@ public class FrmChatServer extends JFrame {
 		scrollPane.setViewportView(txtConversacion);
 	}
 
+	/**
+	 * Retorna el campo de texto donde el usuario escribe los mensajes.
+	 * Útil para poder leer su valor o para asignarle eventos desde otras clases.
+	 */
 	public JTextField getTxtMensaje() {
 		return txtMensaje;
 	}
 
+	/**
+	 * Retorna el botón que se utiliza para enviar los mensajes.
+	 * Útil para poder asignarle listeners u otras configuraciones.
+	 */
 	public JButton getBtnEnviar() {
 		return btnEnviar;
 	}
 
+	/**
+	 * Recibe un mensaje de texto como parámetro y lo añade al final del área
+	 * de historial de la conversación. Luego de añadir el texto, se limpia
+	 * la caja de texto para que quede lista para escribir un nuevo mensaje.
+	 *
+	 * @param message el mensaje a agregar al área de la conversación.
+	 */
 	public void addMessage(String message) {
 		String conversacion = txtConversacion.getText();
 		conversacion = conversacion.concat(message).concat("\n");
